@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="refresh" content="60"> -->
+  <title>Yizhak Gete - Portfolio</title>
+  <script src="https://kit.fontawesome.com/96c2cf9a06.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      clear: both;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  ;
+    }
+/* .borderMain{
+  position: absolute;
+  border:   solid white;
+  height: 100vh;
+  width: 100vw;
+} */
+    .divSlider {
+      position: absolute;
+      width: 85vw;
+      height: 80vh;
+      overflow: hidden;
+      z-index: -1;
+      /* left: 14%;
+      top: 14%; */
+      left: 7.5%;
+      top: 10%;
+    }
+
+    .container {
+      position: absolute;
+      display: flex;
+      width: 255vw;
+      left: 0vw;
+      transition: left 1s;
+    }
+
+    .box {
+      width: 85vw;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .divsArrow {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      padding: 2vw;
+    }
+
+    .fa-chevron-left,
+    .fa-chevron-right {
+      font-size: 5vw;
+      font-weight: 800;
+      cursor: pointer;
+
+    }
+
+    .fa-chevron-left:hover,
+    .fa-chevron-right:hover,.navGetToMyDiv:hover {
+      animation: scale-up-center .5s cubic-bezier(.39, .575, .565, 1.000) both
+    }
+
+    @keyframes scale-up-center {
+      0% {
+        transform: scale(1)
+      }
+
+      100% {
+        transform: scale(1.5)
+      }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 2.5vh;
+    }
+
+    .divSliderNav {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+    }
+
+    .navGetToMyDiv {
+      font-size: 2.5vh;
+      font-weight: 700;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="main">
+    <!-- <div class="borderMain"></div> -->
+    <div class="divsArrow">
+      <i onclick="prevDiv()" class="fas fa-chevron-left"></i>
+      <i onclick="nexDiv()" class="fas fa-chevron-right"></i>
+    </div>
+    <div class="divSlider">
+      <div id="divFlexContainer" class="container">
+        <div id="main" class="box" style="background: aquamarine;">
+          <h1>Welcome</h1>
+        </div>
+        <div id="resume" class="box" style="background: lightsteelblue;">
+          <h1>To My</h1>
+        </div>
+        <div id="myStory" class="box" style="background: lightsalmon;">
+          <h1>Portfolio</h1>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div id="divSliderNav" class="divSliderNav"></div>
+    </footer>
+
+  </main>
+  <script>
+    function nexDiv() {
+      index += -85;
+      document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -85)}vw`;
+    }
+    function prevDiv() {
+      index += 85;
+      if (index > 0)
+        index = ((numbeOfDivs - 1) * -85);
+      document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -85)}vw`;
+    }
+    function footerNavCreate() {
+      let nav = document.getElementById("divSliderNav");
+      let divs = document.getElementsByClassName("box");
+      for (i = 0; i < divs.length; i++) {
+        nav.innerHTML += `<div onclick=getToTheDiv(${i*85}) class="navGetToMyDiv">${divs[i].id.toLocaleUpperCase()}</div>`
+      }
+    }
+function getToTheDiv(leftValue){
+  index = -leftValue;
+  console.log(index)
+      document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -85)}vw`;
+}
+    window.onload=()=>{
+      footerNavCreate();
+    }
+    let index = 0;
+    let numbeOfDivs = document.getElementsByClassName("box").length;
+  </script>
+  </main>
+</body>
+
+</html>

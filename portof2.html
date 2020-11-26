@@ -6,114 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <meta http-equiv="refresh" content="60"> -->
   <title>Yizhak Gete - Portfolio</title>
+  <link rel="stylesheet" href="portof2.css">
   <script src="https://kit.fontawesome.com/96c2cf9a06.js" crossorigin="anonymous"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-      clear: both;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  ;
-    }
-
-    .divSlider {
-      position: absolute;
-      width: 85vw;
-      height: 80vh;
-      overflow: hidden;
-      z-index: -1;
-      left: 7.5%;
-      top: 10%;
-    }
-
-    .container {
-      position: absolute;
-      display: flex;
-      width: 255vw;
-      left: 0vw;
-      transition: left 1s;
-    }
-
-    .box {
-      width: 85vw;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .divsArrow {
-      position: absolute;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      padding: 2vw;
-    }
-
-    .fa-chevron-left,
-    .fa-chevron-right {
-      font-size: 5vw;
-      font-weight: 800;
-      cursor: pointer;
-
-    }
-
-    .fa-chevron-left:hover,
-    .fa-chevron-right:hover,.navGetToMyDiv:hover {
-      animation: scale-up-center .5s cubic-bezier(.39, .575, .565, 1.000) both
-    }
-
-    @keyframes scale-up-center {
-      0% {
-        transform: scale(1)
-      }
-
-      100% {
-        transform: scale(1.5)
-      }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 2.5vh;
-    }
-
-    .divSliderNav {
-      display: flex;
-      justify-content: center;
-      width: 100vw;
-    }
-
-    .navGetToMyDiv {
-      font-size: 2.5vh;
-      font-weight: 700;
-      margin: 10px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <main class="main">
-    <div class="divsArrow">
+    <div id="divsArrow" class="divsArrow">
       <i onclick="prevDiv()" class="fas fa-chevron-left"></i>
       <i onclick="nexDiv()" class="fas fa-chevron-right"></i>
     </div>
     <div class="divSlider">
       <div id="divFlexContainer" class="container">
-        <div id="main" class="box" style="background: aquamarine;">
-          <h1>Welcome</h1>
+        <div id="divmain" class="box" style="background-image: url(./img/divsBackground/1.jpg);">
+          <div class="storyText">
+            <div class="topMainText">
+              <h2>My Name Is</h2>
+              <h1 id="topH1"></h1>
+            </div>
+            <div class="bottomMainText">
+              <h2>And This Is My</h2>
+              <h1 id="bottomH1"></h1>
+            </div>
+          </div>
         </div>
-        <div id="resume" class="box" style="background: lightsteelblue;">
-          <h1>To My</h1>
+        <div id="div1992" class="box" style="background-image: url(./img/divsBackground/2.jpg);">
+          <div class="text1992">
+            <h1>1992</h1>
+            <h2>Born And Raise In</h2>
+            <h1>IS<span class ="spanText"style="color: cornflowerblue;">R</span><span style="color:whitesmoke;">A</span>EL</h1>
+          </div>
         </div>
-        <div id="myStory" class="box" style="background: lightsalmon;">
-          <h1>Portfolio</h1>
+        <div id="div2007" class="box" style="background-image: url(./img/divsBackground/3.jpg);">
+          <div class="text2007">
+            <h4>2007-2010</h4>
+         <h1>High School</h1>
+         <div style="display: flex; align-items: flex-start; margin: 30px; text-align: left;">
+          <h2>Major:</h2>
+          <ul>
+            <li>5 Ponits C#</li>
+            <li>5 Ponits Biology</li>
+            <li>5 Ponits English</li>
+          </ul>
+         </div>
+        </div>
+        </div>
+        <div id="div2012" class="box" style="background: white;">
+          <h1>2012-2015</h1>
+          <h2>Technician In Israel Air Force</h2>
+          <i class="fas fa-fighter-jet"></i>
+        </div>
+        <div id="div2015" class="box" style="background: white;">
+         
         </div>
       </div>
     </div>
@@ -122,35 +68,7 @@
     </footer>
 
   </main>
-  <script>
-    function nexDiv() {
-      index += -85;
-      document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -85)}vw`;
-    }
-    function prevDiv() {
-      index += 85;
-      if (index > 0)
-        index = ((numbeOfDivs - 1) * -85);
-      document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -85)}vw`;
-    }
-    function footerNavCreate() {
-      let nav = document.getElementById("divSliderNav");
-      let divs = document.getElementsByClassName("box");
-      for (i = 0; i < divs.length; i++) {
-        nav.innerHTML += `<div onclick=getToTheDiv(${i*85}) class="navGetToMyDiv">${divs[i].id.toLocaleUpperCase()}</div>`
-      }
-    }
-function getToTheDiv(leftValue){
-  index = -leftValue;
-  console.log(index)
-      document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -85)}vw`;
-}
-    window.onload=()=>{
-      footerNavCreate();
-    }
-    let index = 0;
-    let numbeOfDivs = document.getElementsByClassName("box").length;
-  </script>
+  <script src="./portof2.js"></script>
   </main>
 </body>
 

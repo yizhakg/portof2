@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+  clear: both;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #1f1f1f;
+}
+h1,h2,ul{
+  margin: 0;
+}
+/* ----------------------divSlider---------------------- */
+.divSlider {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  left: 0vw;
+  transition: left 1s ;
+}
+
+.box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ----------------------arrowsofDivs---------------------- */
+.divsArrow {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 2vw;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  font-size: 5vw;
+  font-weight: 800;
+  cursor: pointer;
+z-index: 1;
+}
+
+.fa-chevron-left:hover,
+.fa-chevron-right:hover,
+.navGetToMyDiv:hover {
+  animation: scale-up-center .5s cubic-bezier(.39, .575, .565, 1.000) both
+}
+
+ /* ----------------------NavFooter---------------------- */
+
+footer {
+  position: absolute;
+  bottom: 2.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.divSliderNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  color: #282929;
+  text-shadow: rgb(139, 139, 139) 2px 2px 2px;
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+.divSliderNav::before{
+  content: "<!--";
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+.divSliderNav::after{
+  content: "-->";
+}
+.navGetToMyDiv {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.navHeadLine {
+  display: block;
+  margin: 0;
+  padding: 0;
+  transition: color 1.2s ease;
+}
+
+.navGetToMyDiv:nth-child(1) p::before { 
+  font-family: "FontAwesome";
+  content: '\f015';
+  margin: 10px;
+}
+.navGetToMyDiv:nth-child(2) p::before { 
+  font-family: "FontAwesome";
+  content: '\f77d';
+  margin: 10px;
+}
+.navGetToMyDiv:nth-child(3) p::before { 
+  font-family: "FontAwesome";
+  content: '\f51c';
+  margin: 10px;
+}
+.navGetToMyDiv:nth-child(4) p::before { 
+  font-family: "FontAwesome";
+  content: '\f0fb';
+  margin: 10px;
+}
+.navGetToMyDiv:nth-child(5) p::before { 
+  font-family: "FontAwesome";
+  content: '\f0b1';
+  margin: 10px;
+}
+/* ----------------------cssNavigtionApear---------------------- */
+.divSliderNav,.fa-chevron-left,
+.fa-chevron-right{
+  z-index: -1;
+opacity: 0;
+ transition: opacity 3s;
+}
+/* ----------------------Animations---------------------- */
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(1)
+  }
+
+  100% {
+    transform: scale(1.5)
+  }
+}
+/* ----------------------MainDiv---------------------- */
+.storyText{
+  
+  font-size: 800%;
+  opacity: 0;
+  transition: all 2s linear;
+  width: 100vw;  
+}
+
+.topMainText,.bottomMainText{
+  line-height: 50px;
+  margin: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.storyText h1,.storyText h2{
+margin: 0;
+padding: 0;
+width: 90vw;
+}
+.storyText h1{
+font-size: 65px;
+color:#C80000;
+font-weight: 900;
+text-shadow: -1px 1px 2px  #1f1f1f,
+				  1px 1px 2px  #1f1f1f,
+				  1px -1px 0  #1f1f1f,
+				  -1px -1px 0  #1f1f1f;
+}
+.storyText h2{
+  width:70vw;
+background: rgba(255, 255, 255, 0.534);
+height: 50px;
+}
+.bottomMainText h2{
+opacity: 0;
+transition: opacity 2s;
+}
+/* ----------------------1992---------------------- */
+.text1992 h1{
+  font-size: 80px;
+}
+.text1992 h2{
+  font-size: 40px;
+}
+/* ----------------------2007---------------------- */
+.text2007{
+  font-size: 30px;
+} 
+.text2007 ul{
+  margin-top: 10px;
+}
+/* ----------------------2012---------------------- */
+#div2012{
+  font-size: 30px;
+  overflow: hidden;
+}
+#div2012>i{
+  font-size: 6vw;
+  animation: jetFly 4s linear infinite;
+}
+@keyframes jetFly{
+  0%{
+transform: translateX(-50vw);
+  }
+  100%{
+    transform: translateX(50vw);
+  }
+}
+/* ----------------------skillList---------------------- */
+.skillList{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  font-size: 25px;
+}
+.skilsItems{
+  display: flex;
+ align-items: center;
+ justify-content: flex-start;
+  margin: 10px;
+  width: 150px;
+}
+.skilsItems>img{
+  height: 48px;
+  width: auto;
+}
+.skilsItems>p{
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}

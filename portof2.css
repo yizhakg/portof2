@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   color: #1f1f1f;
 }
-h1,h2,ul{
+h1,h2,h3,h4,h5,h6,ul{
   margin: 0;
 }
 /* ----------------------divSlider---------------------- */
@@ -48,6 +48,7 @@ h1,h2,ul{
   height: 100%;
   width: 100%;
   padding: 2vw;
+  z-index: -1;
 }
 
 .fa-chevron-left,
@@ -207,6 +208,11 @@ transition: opacity 2s;
   font-size: 30px;
   overflow: hidden;
 }
+#div2012>img{
+  height: 10%;
+  width: auto;
+  margin: 10px;
+}
 #div2012>i{
   font-size: 6vw;
   animation: jetFly 4s linear infinite;
@@ -218,6 +224,28 @@ transform: translateX(-50vw);
   100%{
     transform: translateX(50vw);
   }
+}
+/* ----------------------2015---------------------- */
+.work2015{
+  height: 80%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+.jobs>img{
+  height: 40%;
+  width: auto;
+}
+/* ----------------------2020---------------------- */
+.techCodeIn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.techCodeIn>img{
+  height: 20%;
+  width: auto;
 }
 /* ----------------------skillList---------------------- */
 .skillList{

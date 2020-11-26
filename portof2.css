@@ -28,6 +28,7 @@ h1,h2,h3,h4,h5,h6,ul{
 }
 
 .box {
+  background: url(./img/divsBackground/1.jpg);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -37,6 +38,7 @@ h1,h2,h3,h4,h5,h6,ul{
   text-align: center;
   background-size: cover;
   background-position: center;
+  
 }
 
 /* ----------------------arrowsofDivs---------------------- */
@@ -48,7 +50,6 @@ h1,h2,h3,h4,h5,h6,ul{
   height: 100%;
   width: 100%;
   padding: 2vw;
-  z-index: -1;
 }
 
 .fa-chevron-left,
@@ -86,14 +87,14 @@ footer {
   font-size: 1.5vw;
   font-weight: 700;
 }
-.divSliderNav::before{
+/* .divSliderNav::before{
   content: "<!--";
   font-size: 1.5vw;
   font-weight: 700;
 }
 .divSliderNav::after{
   content: "-->";
-}
+} */
 .navGetToMyDiv {
   margin: 10px;
   cursor: pointer;
@@ -131,6 +132,11 @@ footer {
   content: '\f0b1';
   margin: 10px;
 }
+.navGetToMyDiv:nth-child(6) p::before { 
+  font-family: "FontAwesome";
+  content: '\f5fc';
+  margin: 10px;
+}
 /* ----------------------cssNavigtionApear---------------------- */
 .divSliderNav,.fa-chevron-left,
 .fa-chevron-right{
@@ -151,8 +157,6 @@ opacity: 0;
 }
 /* ----------------------MainDiv---------------------- */
 .storyText{
-  
-  font-size: 800%;
   opacity: 0;
   transition: all 2s linear;
   width: 100vw;  
@@ -172,7 +176,7 @@ padding: 0;
 width: 90vw;
 }
 .storyText h1{
-font-size: 65px;
+font-size: 6vw;
 color:#C80000;
 font-weight: 900;
 text-shadow: -1px 1px 2px  #1f1f1f,
@@ -181,13 +185,18 @@ text-shadow: -1px 1px 2px  #1f1f1f,
 				  -1px -1px 0  #1f1f1f;
 }
 .storyText h2{
+  font-size: 10vw;
   width:70vw;
 background: rgba(255, 255, 255, 0.534);
 height: 50px;
 }
 .bottomMainText h2{
 opacity: 0;
-transition: opacity 2s;
+transition: opacity 1.5s;
+}
+#openH2{
+  font-size: 100vw;
+  transition: all 2s;
 }
 /* ----------------------1992---------------------- */
 .text1992 h1{
@@ -195,6 +204,12 @@ transition: opacity 2s;
 }
 .text1992 h2{
   font-size: 40px;
+}
+.text1992 span{
+  text-shadow: -1px 1px 2px  #1f1f1f,
+				  1px 1px 2px  #1f1f1f,
+				  1px -1px 0  #1f1f1f,
+				  -1px -1px 0  #1f1f1f;
 }
 /* ----------------------2007---------------------- */
 .text2007{
@@ -244,31 +259,16 @@ transform: translateX(-50vw);
   align-items: center;
 }
 .techCodeIn>img{
-  height: 20%;
-  width: auto;
+  height: auto;
+  width: 35vw;
 }
-/* ----------------------skillList---------------------- */
 .skillList{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70vw;
-  font-size: 25px;
 }
-.skilsItems{
-  display: flex;
- align-items: center;
- justify-content: flex-start;
+.skillList>img{
+  height: auto;
+  width: 8vw;
   margin: 10px;
-  width: 150px;
-}
-.skilsItems>img{
-  height: 48px;
-  width: auto;
-}
-.skilsItems>p{
-  margin: 0;
-  padding: 0;
-  text-align: left;
 }

@@ -68,8 +68,9 @@ window.onload = () => {
   footerNavCreate();
   document.getElementsByClassName("navHeadLine")[0].style.color = navSwitchColor;
   setTimeout(mainNavigationApear, 9000)
-  document.querySelector(".storyText").style.fontSize = "450%";
+  
   document.querySelector(".storyText").style.opacity = "1";
+ document.getElementById("openH2").style.fontSize = "9vw";
   setTimeout(() => insertText("topH1", "Yizhak Gete"), 2500);
   setTimeout(() => document.querySelector(".bottomMainText").querySelector("h2").style.opacity = "1", 4000);
   setTimeout(() => insertText("bottomH1", "Story"), 6500);

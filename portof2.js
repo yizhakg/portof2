@@ -1,33 +1,13 @@
+// ---------------------get to next div---------------------
 function nexDiv() {
-  // index += -divsWidth;
-  // document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -divsWidth)}vw`;
-  // document.getElementsByClassName("navHeadLine")[colorIndex % numbeOfDivs].style.color = "unset";
-  // colorIndex++;
-  // document.getElementsByClassName("navHeadLine")[colorIndex % numbeOfDivs].style.color = navSwitchColor;
-  // document.querySelector(".fa-chevron-left").style.zIndex = 1;
-  // document.querySelector(".fa-chevron-left").style.opacity = 1;
   getToTheDiv((colorIndex + 1) * divsWidth, colorIndex + 1)
 }
+// ---------------------get to prev div---------------------
 function prevDiv() {
-  // index += divsWidth;
-  // if (index > 0)
-  //   index = ((numbeOfDivs - 1) * -divsWidth);
-  // document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -divsWidth)}vw`;
-  // document.getElementsByClassName("navHeadLine")[colorIndex % numbeOfDivs].style.color = "unset";
-  // colorIndex--;
-  // if (colorIndex == -1) { colorIndex = 2 }
-  // document.getElementsByClassName("navHeadLine")[colorIndex % numbeOfDivs].style.color = navSwitchColor;
   getToTheDiv((colorIndex - 1) * divsWidth, colorIndex - 1)
 }
-function footerNavCreate() {
-  let nav = document.getElementById("divSliderNav");
-  let divs = document.getElementsByClassName("box");
-  for (i = 0; i < divs.length; i++) {
-    let idIn = divs[i].id;
-    nav.innerHTML += `<div onclick=getToTheDiv(${i * divsWidth},${i}) class="navGetToMyDiv"><p class=navHeadLine>${idIn.substr(3, idIn.length).toLocaleUpperCase()}</p></div>`
-  }
-}
-function getToTheDiv(leftValue, colorIndexValue) {//${1 * divsWidth},${1})
+// -----------the function that get you to the div-----------
+function getToTheDiv(leftValue, colorIndexValue) {
   index = -leftValue;
   index2 =
     document.getElementById("divFlexContainer").style.left = `${index % (numbeOfDivs * -divsWidth)}vw`;
@@ -51,31 +31,21 @@ function getToTheDiv(leftValue, colorIndexValue) {//${1 * divsWidth},${1})
     document.querySelector(".fa-chevron-right").style.opacity = 0;
   }
 }
-function mainNavigationApear() {
-  document.getElementById("divSliderNav").style.zIndex = 1;
-  document.getElementById("divSliderNav").style.opacity = 1;
-  document.querySelector(".fa-chevron-right").style.zIndex = 1;
-  document.querySelector(".fa-chevron-right").style.opacity = 1;
-}
-function insertText(textId, insertThisText) {
-  let timeInsert = 100;
-  for (let i = 0; i < insertThisText.length; i++) {
-    setTimeout(() => { document.getElementById(textId).innerHTML += insertThisText[i] }, i * timeInsert)
+// -------the footer navBar creator(using the divs id)-------
+function footerNavCreate() {
+  let nav = document.getElementById("divSliderNav");
+  let divs = document.getElementsByClassName("box");
+  for (i = 0; i < divs.length; i++) {
+    let idIn = divs[i].id;
+    nav.innerHTML += `<div onclick=getToTheDiv(${i * divsWidth},${i}) class="navGetToMyDiv"><p class=navHeadLine>${idIn.substr(3, idIn.length).toLocaleUpperCase()}</p></div>`
   }
 }
-
-window.onload = () => {
-  footerNavCreate();
-  document.getElementsByClassName("navHeadLine")[0].style.color = navSwitchColor;
-  setTimeout(mainNavigationApear, 9000)
-  
-  document.querySelector(".storyText").style.opacity = "1";
- document.getElementById("openH2").style.fontSize = "9vw";
-  setTimeout(() => insertText("topH1", "Yizhak Gete"), 2500);
-  setTimeout(() => document.querySelector(".bottomMainText").querySelector("h2").style.opacity = "1", 4000);
-  setTimeout(() => insertText("bottomH1", "Story"), 6500);
-  setTimeout(() => { document.onkeydown = checkKey; }, 10000)
+// ------------change the opacity of the elements------------
+function elementOpacityChanger() {
+  document.getElementById("divSliderNav").style.opacity = 1;
+  document.querySelector(".fa-chevron-right").style.opacity = 1;
 }
+// --------------keyboard arrows skip div enable-------------
 function checkKey(e) {
   e = e || window.event;
   if (e.keyCode == '39') {
@@ -86,10 +56,18 @@ function checkKey(e) {
   }
 
 }
+// ------------------browser onload functions-----------------
+window.onload = () => {
+  footerNavCreate();
+  document.getElementsByClassName("navHeadLine")[0].style.color = navSwitchColor;
+  // setTimeout(elementOpacityChanger, 10)
+  setTimeout(() => { document.onkeydown = checkKey }, 10)
+}
 
+// ----------------------global variables---------------------
 let index = 0;
 let colorIndex = 0;
-let navSwitchColor = "#ffffff"
+let navSwitchColor = "black";
 let numbeOfDivs = document.getElementsByClassName("box").length;
 let divsWidth = 100;
 document.getElementById("divFlexContainer").style.width = `${numbeOfDivs * divsWidth}vw`;

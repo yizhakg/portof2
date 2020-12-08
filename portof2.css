@@ -2,15 +2,24 @@
   box-sizing: border-box;
   clear: both;
 }
-
+:root{
+  --mainColor:#E0CA3C;
+  --black:#000F08;
+}
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #1f1f1f;
 }
-h1,h2,h3,h4,h5,h6,ul{
+h1,h2,h3,h4,h5,h6,ul,p{
   margin: 0;
+}
+.webDateTime{
+  display: flex;
+}
+.webDateTime>p{
+  margin: 5px;
 }
 /* ----------------------divSlider---------------------- */
 .divSlider {
@@ -54,16 +63,21 @@ h1,h2,h3,h4,h5,h6,ul{
 
 .fa-chevron-left,
 .fa-chevron-right {
-  font-size: 5vw;
-  font-weight: 800;
+  font-size: 70px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
   cursor: pointer;
 z-index: 1;
 }
-
-.fa-chevron-left:hover,
-.fa-chevron-right:hover,
-.navGetToMyDiv:hover {
-  animation: scale-up-center .5s cubic-bezier(.39, .575, .565, 1.000) both
+.fa-chevron-left{
+  align-self: flex-start;
+  margin: 10px 20px;
+}
+.fa-chevron-right{
+  align-self: flex-end;
+  margin: 8px;
 }
 
  /* ----------------------NavFooter---------------------- */
@@ -82,10 +96,12 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  color: #282929;
-  text-shadow: rgb(139, 139, 139) 2px 2px 2px;
-  font-size: 1.5vw;
-  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(150, 150, 150);
+  font-size: 30px;
+  font-weight: 900;
+  z-index: 1;
 }
 /* .divSliderNav::before{
   content: "<!--";
@@ -138,12 +154,12 @@ footer {
   margin: 10px;
 }
 /* ----------------------cssNavigtionApear---------------------- */
-.divSliderNav,.fa-chevron-left,
+/* .divSliderNav,.fa-chevron-left,
 .fa-chevron-right{
-  z-index: -1;
+  z-index: 1;
 opacity: 0;
  transition: opacity 3s;
-}
+} */
 /* ----------------------Animations---------------------- */
 
 @keyframes scale-up-center {
@@ -156,48 +172,7 @@ opacity: 0;
   }
 }
 /* ----------------------MainDiv---------------------- */
-.storyText{
-  opacity: 0;
-  transition: all 2s linear;
-  width: 100vw;  
-}
 
-.topMainText,.bottomMainText{
-  line-height: 50px;
-  margin: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.storyText h1,.storyText h2{
-margin: 0;
-padding: 0;
-width: 90vw;
-}
-.storyText h1{
-font-size: 6vw;
-color:#C80000;
-font-weight: 900;
-text-shadow: -1px 1px 2px  #1f1f1f,
-				  1px 1px 2px  #1f1f1f,
-				  1px -1px 0  #1f1f1f,
-				  -1px -1px 0  #1f1f1f;
-}
-.storyText h2{
-  font-size: 10vw;
-  width:70vw;
-background: rgba(255, 255, 255, 0.534);
-height: 50px;
-}
-.bottomMainText h2{
-opacity: 0;
-transition: opacity 1.5s;
-}
-#openH2{
-  font-size: 100vw;
-  transition: all 2s;
-}
 /* ----------------------1992---------------------- */
 .text1992 h1{
   font-size: 80px;

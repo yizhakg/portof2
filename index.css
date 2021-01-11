@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-  clear: both;
-}
 :root{
   --mainColor:#E0CA3C;
   --black:#000F08;
@@ -37,7 +33,6 @@ h1,h2,h3,h4,h5,h6,ul,p{
 }
 
 .box {
-  background: url(./img/divsBackground/1.jpg);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -45,9 +40,10 @@ h1,h2,h3,h4,h5,h6,ul,p{
   align-items: center;
   flex-direction: column;
   text-align: center;
+  /* background: url(./img/divsBackground/1.jpg);
   background-size: cover;
   background-position: center;
-  
+   */
 }
 
 /* ----------------------arrowsofDivs---------------------- */
@@ -235,7 +231,11 @@ transform: translateX(-50vw);
 }
 .techCodeIn>img{
   height: auto;
-  width: 35vw;
+  width: 20vw;
+}
+.techCodeIn>img:nth-child(2){
+  height: auto;
+  width: 14vw;
 }
 .skillList{
   display: flex;
